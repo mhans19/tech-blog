@@ -6,10 +6,10 @@
   <form class="edit-post-form">
     <div>
       <input name="post-title" type="text" value="{{post.title}}" />
-      <textarea name = "blog-text" type = "text" value = "{{post.body}}">{{post.body}}</textarea>
+      <textarea name = "post-body" type = "text" value = "{{post.body}}">{{post.body}}</textarea>
     </div>
     <div>
-      Published on {{format_date post.created_at}}
+      You published this post on {{format_date post.created_at}}
       |
       <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
     </div>
