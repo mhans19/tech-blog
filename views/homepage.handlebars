@@ -1,7 +1,32 @@
-<ol class="post-list">
-  {{#each posts as |post|}}
-  <li>
-    {{> post-info post }}
-  </li>
-  {{/each}}
-</ol>
+<div id = "#homepage">
+  <ol class="post-list">
+    {{#each posts as |post|}}
+    <li>
+      {{> post-info post }}
+    </li>
+    {{/each}}
+  </ol>
+</div>
+
+{{#if loggedIn}}
+<h3>
+  <a href = "/dashboard">
+    Create a new post!
+  </a>
+</h3>
+{{else}}
+<h2>
+  Oh no! There are no blog posts yet! 
+</h2>
+<h3>
+  You must 
+  <a href = "/login">
+    login
+  </a> 
+  or 
+  <a href = "/signup">
+    sign-up 
+  </a>
+  to contribute to codeBloggers.
+</h3>
+{{/if}}
