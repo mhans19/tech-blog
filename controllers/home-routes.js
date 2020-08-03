@@ -48,13 +48,23 @@ router.get('/', (req, res) => {
       });
   });
 // GET LOGIN
-  router.get('/login', (req, res) => {
-    if (req.session.loggedIn) {
+router.get('/login', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('login');
+});
+// GET SIGNUP
+router.get('/signup', (req, res) => {
+  if(req.session.loggedIn) {
       res.redirect('/');
       return;
-    }
-    res.render('login');
-  });
+  }
+  
+  res.render('sign-up');
+});
 // GET ONE POST  
   router.get('/post/:id', (req, res) => {
     Post.findOne({
