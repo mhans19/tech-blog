@@ -1,14 +1,24 @@
-{{> post-info post}}
+<section>
+  <h2 class = "text-center font-weight-bold">Post</h2>
+    <div class = "border border-success rounded my-2 text-center">
+      {{> post-info post }}
+    </div>
+</section>
 
 {{#if loggedIn}}
-<form class="comment-form">
-  <div>
-    <textarea name="comment-body"></textarea>
-  </div>
-  <div>
-    <button type="submit">add comment</button>
-  </div>
+<form class="comment-form border border-success rounded my-2 p-2">
+    <h2 class = "text-center font-weight-bold">Add Comment</h2>
+    <div class="form-group row ">
+      <label for="comment-body"class="col-sm-2 col-form-label font-weight-bold">Comment</label>
+      <div class="col-sm-12">
+        <textarea name="comment-body" class="form-control"></textarea>
+      </div>
+    </div>
+    <div>
+      <button type="submit" class="btn btn-success btn-block font-weight-bold">Add comment</button>
+    </div>
 </form>
+
 {{/if}}
 {{> comments post.comments}}
 {{#if loggedIn}}

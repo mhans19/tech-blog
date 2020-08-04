@@ -1,29 +1,18 @@
-<div id = "homepage">
-  <ol class="post-list">
-    {{#each posts as |post|}}
-    <li>
-      {{> post-info post }}
-    </li>
-    {{/each}}
-  </ol>
-</div>
+<section>
+  <h2 class = "text-center font-weight-bold">Latest Posts</h2>
+  <div id = "homepage" >
+    <div class= "text-center">
+      {{#each posts as |post|}}
+      <div class = "border border-success rounded my-2">
+        {{> post-info post }}
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</section>
 
 {{#if loggedIn}}
-<h3>
-  <a href = "/dashboard">
-    Create a new post!
-  </a>
-</h3>
+<h3 class = "text-center font-weight-bold"><a href = "/dashboard"> Create a new post!</a></h3>
 {{else}}
-<h3>
-  You must 
-  <a href = "/login">
-    login
-  </a> 
-  or 
-  <a href = "/signup">
-    sign-up 
-  </a>
-  to contribute to codeBloggers.
-</h3>
+<h3 class = "text-center font-weight-bold"> You must <a href = "/login">login</a> or <a href = "/signup">sign-up </a>to contribute to codeBloggers.</h3>
 {{/if}}
