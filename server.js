@@ -7,9 +7,8 @@ const session = require('express-session');
 const helpers = require('./utils/helpers');
 
 // PORT
-const PORT = process.env.PORT || '3001';
-app = express();
-app.set("port", PORT)
+const app = express();
+const PORT = process.env.PORT || 3001;
 
 // MIDDLEWARE
 app.use(express.json());
