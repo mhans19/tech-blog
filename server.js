@@ -22,6 +22,7 @@ app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars')
 
 // SET UP SESSION
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const sess = {
   secret: process.env.SECRET,
   cookie: {
