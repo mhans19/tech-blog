@@ -24,16 +24,17 @@ app.set('view engine', 'handlebars')
 // SET UP SESSION
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const sess = {
-  secret: 'topsecret',
+  secret: process.env.SECRET,
   cookie: {
-    expires: 20 * 6000
+      maxAge: 30 * 60000,
+      sameSite: 'strict'
   },
-  resave: true,
-  rolling: true,
+  resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
-    db: sequelize
+      db: sequelize
   })
+};
 };
 app.use(session(sess));
 
