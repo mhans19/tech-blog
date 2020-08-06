@@ -24,10 +24,12 @@ app.set('view engine', 'handlebars')
 // SET UP SESSION
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const sess = {
-  sameSite: 'strict',
   secret: 'topsecret',
-  cookie: {expires: 30 * 60 * 1000},
-  resave: false,
+  cookie: {
+    expires: 10 * 6000
+  },
+  resave: true,
+  rolling: true,
   saveUninitialized: true,
   store: new SequelizeStore({
     db: sequelize
@@ -40,5 +42,5 @@ app.use(routes);
 
 // CONNECTION
 sequelize.sync({ force: false }).then(() => {
-    app.listen(PORT, () => console.log('Now listening'));
-  });
+  app.listen(PORT, () => console.log('Now listening'));
+});
