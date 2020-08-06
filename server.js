@@ -26,7 +26,7 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const sess = {
   secret: 'topsecret',
   cookie: {
-    expires: 10 * 6000
+    expires: 20 * 6000
   },
   resave: true,
   rolling: true,
@@ -36,6 +36,7 @@ const sess = {
   })
 };
 app.use(session(sess));
+
 
 // ROUTES
 app.use(routes);
